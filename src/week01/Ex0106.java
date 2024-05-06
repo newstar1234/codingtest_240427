@@ -18,7 +18,9 @@ public class Ex0106 {
             System.out.println(arr);
         }
 
-        // 클래스는 length()
+
+        // 배열은 length
+        // 문자열 / 클래스는 length()
         // list, ArrayList는 size
     }
 }

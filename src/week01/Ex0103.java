@@ -13,8 +13,8 @@ public class Ex0103 {
         int e = i % j;
 
         System.out.println(String.format("%d %d", d, e));
-        System.out.println(i++);
-        System.out.println(++j);
+        System.out.println(i++); // 10 출력 -> i == 11
+        System.out.println(++j); // 21 출력 -> j == 21
 
         System.out.println(1&1); // 비트로 변환 -> & // 0001 & 0001 = 0001(1)
         System.out.println(1&2); // 비트로 변환 -> & // 0001 & 0010 = 0000(0)

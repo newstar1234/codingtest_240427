@@ -11,6 +11,5 @@ public class Ex0102 {
         double d = 3.1685432121;    // 8byte
 
         boolean t = false;
-
     }
 }
