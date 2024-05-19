@@ -1,41 +1,39 @@
-
 import java.util.*;
 
-public class bj10828 {
+public class bj28278 {
     public static void main(String[] args) {
         Stack<Integer> stack = new Stack<>();
-        StringBuilder sb = new StringBuilder();
         Scanner sc = new Scanner(System.in);
+        StringBuilder sb = new StringBuilder();
         int n = sc.nextInt();
-       
 
         sc.nextLine();
-        for(int i = 0; i < n; i++){
+        for(int i = 0; i<n; i++) {
             String s = sc.nextLine();
-            StringTokenizer st = new StringTokenizer(s); // 이걸 사용해서 push 123 이렇게 입력이 가능함
+            StringTokenizer st = new StringTokenizer(s);
             String cmd = st.nextToken();
-            
+
             switch (cmd) {
-                case "push":
+                case "1":
                     int x = Integer.parseInt(st.nextToken());
                     stack.push(x);
                     break;
             
-                case "pop":
+                case "2":
                     if(stack.isEmpty()) sb.append(-1).append("\n");
                     else sb.append(stack.pop()).append("\n");
                     break;
 
-                case "size":
+                case "3":
                     sb.append(stack.size()).append("\n");
                     break;
 
-                case "empty":
+                case "4":
                     if(stack.isEmpty()) sb.append(1).append("\n");
                     else sb.append(0).append("\n");
                     break;
 
-                case "top":
+                case "5":
                     if(stack.isEmpty()) sb.append(-1).append("\n");
                     else sb.append(stack.peek()).append("\n");
                     break;
@@ -43,8 +41,7 @@ public class bj10828 {
                 default:
                     break;
             }
-            
-        }    
-        System.out.println(sb);   
+        }
+        System.out.println(sb);
     }
 }

@@ -1,38 +1,35 @@
 package week04;
-import java.util.Stack;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
 
-public class BJ10828 {
+public class Bj28278 {
     public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>();
         Scanner sc = new Scanner(System.in);
+        Stack<Integer> stack = new Stack<>();
         int n = sc.nextInt();
-
         sc.nextLine();
+
         for(int i = 0; i < n; i++) {
             String s = sc.nextLine();
             StringTokenizer st = new StringTokenizer(s);
-            String cmd = st.nextToken();
+            int cmd = Integer.parseInt(st.nextToken());
             switch (cmd) {
-                case "push":
-                    int x = Integer.parseInt(st.nextToken());
-                    stack.push(x);
+                case 1:
+                    stack.push(Integer.parseInt(st.nextToken()));
                     break;
-                case "pop":
+                case 2:
                     if(stack.isEmpty()) System.out.println(-1);
                     else System.out.println(stack.pop());
                     break;
-                case "size":
+                case 3:
                     System.out.println(stack.size());
                     break;
-                case "empty":
+                case 4:
                     if(stack.isEmpty()) System.out.println(1);
                     else System.out.println(0);
                     break;
-                case "top":
+                case 5:
                     if(stack.isEmpty()) System.out.println(-1);
-                    else System.out.println(stack.peek());                
+                    else System.out.println(stack.peek());
                     break;
             
                 default:
