@@ -7,6 +7,7 @@ public class BJ1021 {
     public static void main(String[] args) {
         LinkedList<Integer> queue = new LinkedList<>();
         Scanner sc = new Scanner(System.in);
+        int count = 0; // 구하려는 데이터
 
         int n = sc.nextInt(); // 큐에 담길 수 개수
         for(int i = 1; i <= n; i++) {
@@ -14,43 +15,35 @@ public class BJ1021 {
         }
 
         int m = sc.nextInt(); // 두번째 줄에 입력받을 수 개수
-
-        int count = 0;
-
-
-        int[] seq = new int[m]; // 뽑을 수를 담은 배열
+        int[] arr = new int[m]; // 입력받은 m 을 담을 배열
         for(int i = 0; i < m; i++) {
-            seq[i] = sc.nextInt();
+            arr[i] = sc.nextInt(); 
         }
 
-        for(int i = 0; i < m; i++) {
-            int target = queue.indexOf(seq[i]);
-            int half_index; // 중간
-            if(queue.size() % 2 == 0) {
-                half_index = queue.size() / 2 -1;
-            }
-            else {
-                half_index = queue.size() / 2;
-            }
-
-            if(target <= half_index) {
-                for(int j = 0; j < target; j++) {{
-                    int temp = queue.pollFirst();
-                    queue.offerLast(temp);
-                    count++;
-                }}
-            }
-            else {
-                for(int j = 0; j < queue.size() - target; j++) {
-                    int temp = queue.pollLast();
-                    queue.offerFirst(temp);
+        // arr에 담김 숫자만큼만 반복
+        for(int num : arr) {
+            int idx = queue.indexOf(num); // 찾으려는 수의 위치
+            int half = queue.size() / 2;
+            
+            if(idx < half) {
+                // num 이 제일 앞에있는 숫자와 같지 않으면 반복 
+                while(num != queue.getFirst()) { 
+                    // idx가 왼쪽이면 젤 앞의 수를 지우고 맨 뒤에 넣어주기 // 2번
+                    queue.addLast(queue.removeFirst());
                     count++;
                 }
             }
-            queue.pollFirst();
-
+            else {
+                // 3번
+                while(num != queue.getFirst()) {
+                    queue.addFirst(queue.removeLast());
+                    count++;
+                }
+            }
+            // 1번
+            queue.poll();
         }
-
         System.out.println(count);
+
     }
 }
