@@ -7,7 +7,6 @@ public class BJ1021 {
     public static void main(String[] args) {
         LinkedList<Integer> queue = new LinkedList<>();
         Scanner sc = new Scanner(System.in);
-        int count = 0; // 구하려는 데이터
 
         int n = sc.nextInt(); // 큐에 담길 수 개수
         for(int i = 1; i <= n; i++) {
@@ -19,11 +18,12 @@ public class BJ1021 {
         for(int i = 0; i < m; i++) {
             arr[i] = sc.nextInt(); 
         }
-
+        
+        int count = 0; // 구하려는 데이터
         // arr에 담김 숫자만큼만 반복
         for(int num : arr) {
             int idx = queue.indexOf(num); // 찾으려는 수의 위치
-            int half = queue.size() / 2;
+            int half = queue.size() / 2; // 왼쪽으로 회전시킬건지, 오른쪽으로 회전시킬건지
             
             if(idx < half) {
                 // num 이 제일 앞에있는 숫자와 같지 않으면 반복 
@@ -40,7 +40,7 @@ public class BJ1021 {
                     count++;
                 }
             }
-            // 1번
+            // 1번 // 회전시키고 맨 앞에있는 녀석을 poll 빼줌
             queue.poll();
         }
         System.out.println(count);
